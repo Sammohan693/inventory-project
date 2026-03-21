@@ -4,22 +4,20 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-
-    path('', include('inventory.urls')),
-
-    # 🔥 GOOGLE LOGIN
-    path('accounts/', include('allauth.urls')),
-]
-
-# 🔥 MEDIA FILES
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
 from inventory import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('create-admin/', views.create_admin),  
+    # 🔥 app routes
+    path('', include('inventory.urls')),
+
+    # ❌ REMOVE if not using (heavy)
+    # path('accounts/', include('allauth.urls')),
+
+    # 🔥 create admin
+    path('create-admin/', views.create_admin),
 ]
+
+# 🔥 MEDIA FILES
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

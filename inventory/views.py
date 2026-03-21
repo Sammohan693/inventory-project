@@ -120,7 +120,3 @@ def create_admin(request):
 
     return HttpResponse("Admin created successfully")
 
-def migrate_db(request):
-    import os
-    os.system("python manage.py migrate")
-    return HttpResponse("Migration done")
