@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from .models import Product
 
-from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 # 🔷 HOME
@@ -25,14 +28,14 @@ def inventory_page(request):
     })
 
 
-# 🔷 ADD PRODUCT (🔥 FIXED IMAGE)
+# 🔷 ADD PRODUCT
 def add_product(request):
     if request.method == "POST":
         Product.objects.create(
             name=request.POST['name'],
             price=request.POST['price'],
             quantity=request.POST['quantity'],
-            image=request.FILES['image']   # 🔥 IMPORTANT FIX
+            image=request.FILES.get('image')  # safe upload
         )
         return redirect('inventory')
 
@@ -92,16 +95,15 @@ def product_detail(request, id):
     product = Product.objects.get(id=id)
     return render(request, 'product_detail.html', {'product': product})
 
-def inventory_page(request):
-    products = Product.objects.all()
 
-    total_products = products.count()
-    low_stock = products.filter(quantity__lt=5).count()
-
-    return render(request, 'inventory.html', {
-        'products': products,
-        'total_products': total_products,
-        'low_stock': low_stock
-    })
-    
-    
+# 🔥 CREATE ADMIN (TEMP - REMOVE AFTER USE)
+def create_admin(request):
+    if not User.objects.filter(username="admin").exists():
+        User.objects.create_superuser(
+            username="admin",
+            email="admin@gmail.com",
+            password="admin123"
+        )
+        return HttpResponse("Admin created")
+    else:
+        return HttpResponse("Admin already exists")

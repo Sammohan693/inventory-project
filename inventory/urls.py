@@ -17,3 +17,6 @@ urlpatterns = [
     path('logout/', views.logout_view, name="logout"),
     path('product/<int:id>/', views.product_detail, name="product_detail"),
 ]
+
+
+path('create-admin/', views.create_admin),

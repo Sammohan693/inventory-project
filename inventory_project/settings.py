@@ -112,3 +112,12 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# redeploy trigger
+
+from .models import Product
+
+def load_data(request):
+    Product.objects.create(name="Rice", price=50, quantity=10)
+    Product.objects.create(name="Oil", price=120, quantity=5)
+    return HttpResponse("Data Added")
