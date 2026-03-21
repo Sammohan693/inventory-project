@@ -4,9 +4,12 @@ import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# 🔐 SECRET
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-fallback-key')
 
-DEBUG = True
+# 🔥 LOCAL TEST → TRUE
+DEBUG = False
+
 ALLOWED_HOSTS = ['*']
 
 # 🔥 APPS
@@ -24,6 +27,8 @@ INSTALLED_APPS = [
 # 🔥 MIDDLEWARE
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
+    # WhiteNoise (safe)
     'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -62,27 +67,27 @@ DATABASES = {
     )
 }
 
+# 🔐 PASSWORD VALIDATION
 AUTH_PASSWORD_VALIDATORS = []
 
+# 🌍 LANGUAGE
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# 🔥 STATIC FIX
+# 🎨 STATIC FILES (🔥 FIXED)
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# ❗ REMOVE STATICFILES_DIRS (temporary)
-# STATICFILES_DIRS = [BASE_DIR / "static"]
-
-# ❗ REMOVE manifest storage (VERY IMPORTANT)
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # 🖼️ MEDIA
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+# 🔢 DEFAULT
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# deploy trigger

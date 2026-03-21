@@ -2,57 +2,62 @@
 
 {% block content %}
 
-<div class="center-wrapper">
+<div class="sales-wrapper fade-up">
 
-    <h1>Sales Overview</h1>
+```
+<div class="sales-glass">
+
+    <h1 class="page-title">Sales Overview</h1>
 
     <!-- 🔥 STATS -->
-    <div class="cards">
-        <div class="card-box">
+    <div class="sales-stats">
+        <div class="glass-card stat-box">
             <h3>Today's Sales</h3>
             <p>₹2000</p>
         </div>
 
-        <div class="card-box">
+        <div class="glass-card stat-box">
             <h3>Total Orders</h3>
             <p>15</p>
         </div>
 
-        <div class="card-box">
+        <div class="glass-card stat-box">
             <h3>Pending Orders</h3>
             <p>3</p>
         </div>
     </div>
 
     <!-- 🔥 TABLE -->
-    <div class="glass-card table-box">
-        <h3>Recent Sales</h3>
+    <div class="glass-card sales-table">
 
-        <table>
-            <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-            </tr>
+        <div class="table-head">
+            <span>Product</span>
+            <span>Price</span>
+            <span>Qty</span>
+        </div>
 
-            <tr>
-                <td>Laptop</td>
-                <td>50000</td>
-                <td>2</td>
-            </tr>
-            <tr>
-                <td>Phone</td>
-                <td>20000</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>Watch</td>
-                <td>5000</td>
-                <td>3</td>
-            </tr>
+        <div class="table-row">
+            <span>Laptop</span>
+            <span>50000</span>
+            <span>2</span>
+        </div>
 
-        </table>
+        <div class="table-row">
+            <span>Phone</span>
+            <span>20000</span>
+            <span>5</span>
+        </div>
+
+        <div class="table-row">
+            <span>Watch</span>
+            <span>5000</span>
+            <span>3</span>
+        </div>
+
     </div>
+
+</div>
+```
 
 </div>
 

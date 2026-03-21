@@ -2,50 +2,55 @@
 
 {% block content %}
 
-<div class="center-wrapper">
+<div class="reports-wrapper fade-up">
 
-    <h1>Reports</h1>
+```
+<div class="reports-glass">
 
-    <!-- 🔥 CARDS -->
-    <div class="cards">
-        <div class="card-box">
+    <h1 class="page-title">Reports</h1>
+
+    <!-- 🔥 STATS -->
+    <div class="reports-stats">
+        <div class="glass-card stat-box">
             <h3>Total Revenue</h3>
             <p>₹50000</p>
         </div>
 
-        <div class="card-box">
+        <div class="glass-card stat-box">
             <h3>Total Sales</h3>
             <p>120</p>
         </div>
 
-        <div class="card-box">
+        <div class="glass-card stat-box">
             <h3>Total Products</h3>
             <p>50</p>
         </div>
     </div>
 
-    <!-- 🔥 TABLE -->
-    <div class="glass-card table-box">
-        <h3>Summary</h3>
+    <!-- 🔥 SUMMARY -->
+    <div class="glass-card reports-table">
 
-        <table>
-            <tr>
-                <th>Category</th>
-                <th>Value</th>
-            </tr>
+        <h3 class="summary-title">Summary</h3>
 
-            <tr>
-                <td>Electronics</td>
-                <td>₹30000</td>
-            </tr>
+        <div class="table-head">
+            <span>Category</span>
+            <span>Value</span>
+        </div>
 
-            <tr>
-                <td>Accessories</td>
-                <td>₹20000</td>
-            </tr>
+        <div class="table-row">
+            <span>Electronics</span>
+            <span>₹30000</span>
+        </div>
 
-        </table>
+        <div class="table-row">
+            <span>Accessories</span>
+            <span>₹20000</span>
+        </div>
+
     </div>
+
+</div>
+```
 
 </div>
 

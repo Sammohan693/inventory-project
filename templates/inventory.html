@@ -2,49 +2,50 @@
 
 {% block content %}
 
-<div class="center-wrapper">
+<div class="container fade-up">
 
-    <h1>Inventory</h1>
+```
+<!-- 🔥 TITLE -->
+<h1 class="page-title">Inventory</h1>
 
-    <!-- 🔥 STATS -->
-    <div class="cards">
-        <div class="card-box">
-            <h3>Total Products</h3>
-            <p>{{ total_products }}</p>
-        </div>
-
-        <div class="card-box">
-            <h3>Low Stock</h3>
-            <p>{{ low_stock }}</p>
-        </div>
+<!-- 🔥 STATS -->
+<div class="stats-wrapper">
+    <div class="glass-card stat-card">
+        <h3>Total Products</h3>
+        <p>{{ total_products }}</p>
     </div>
 
-    <form method="GET" class="search-box">
+    <div class="glass-card stat-card">
+        <h3>Low Stock</h3>
+        <p>{{ low_stock }}</p>
+    </div>
+</div>
+
+<!-- 🔍 SEARCH -->
+<form method="GET" class="search-wrapper">
     <input type="text" name="q" placeholder="Search product..." value="{{ request.GET.q }}">
     <button type="submit">Search</button>
-    </form>
+</form>
 
-    <!-- 🔥 TABLE -->
-    <div class="glass-card table-box">
+<!-- 📦 TABLE -->
+<div class="glass-card table-container">
 
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-            </tr>
-
-            {% for p in products %}
-            <tr onclick="window.location='{% url 'product_detail' p.id %}'" style="cursor:pointer;">
-                <td>{{ p.name }}</td>
-                <td>₹{{ p.price }}</td>
-                <td>{{ p.quantity }}</td>
-            </tr>
-            {% endfor %}
-
-        </table>
-
+    <div class="table-head">
+        <span>Name</span>
+        <span>Price</span>
+        <span>Qty</span>
     </div>
+
+    {% for p in products %}
+    <a href="{% url 'product_detail' p.id %}" class="table-row">
+        <span>{{ p.name }}</span>
+        <span>₹{{ p.price }}</span>
+        <span>{{ p.quantity }}</span>
+    </a>
+    {% endfor %}
+
+</div>
+```
 
 </div>
 
