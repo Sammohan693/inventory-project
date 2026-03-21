@@ -6,6 +6,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth import get_user_model
 
 
+
+User = get_user_model()   
+
 # 🔷 HOME
 def home(request):
     products = Product.objects.all()
@@ -114,3 +117,30 @@ def create_admin(request):
     user.save()
 
     return HttpResponse("Admin fixed")
+
+username = request.POST.get('username')
+password = request.POST.get('password')
+
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+
+def register_view(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        if username and password:
+            user = User.objects.create_user(
+                username=username,
+                password=password
+            )
+
+            # 🔥 make admin
+            user.is_staff = True
+            user.is_superuser = True
+            user.save()
+
+            return redirect('login')
+
+    return render(request, 'register.html')
