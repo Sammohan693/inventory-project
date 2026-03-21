@@ -3,11 +3,7 @@ from django.http import HttpResponse
 from .models import Product
 
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth import get_user_model
 
-
-
-User = get_user_model()   
 
 # 🔷 HOME
 def home(request):
@@ -33,9 +29,9 @@ def inventory_page(request):
 def add_product(request):
     if request.method == "POST":
         Product.objects.create(
-            name=request.POST['name'],
-            price=request.POST['price'],
-            quantity=request.POST['quantity'],
+            name=request.POST.get('name'),
+            price=request.POST.get('price'),
+            quantity=request.POST.get('quantity'),
             image=request.FILES.get('image')
         )
         return redirect('inventory')
@@ -58,22 +54,27 @@ def reports(request):
     return render(request, 'reports.html')
 
 
-# 🔥 REGISTER (ADMIN CREATE)
+# 🔥 REGISTER (CREATE ADMIN)
 def register_view(request):
-    User = get_user_model()   # ✅ inside function
+    from django.contrib.auth import get_user_model
+    User = get_user_model()
 
     if request.method == "POST":
-        username = request.POST['username']
-        password = request.POST['password']
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
-        user = User.objects.create_user(username=username, password=password)
+        if username and password:
+            user = User.objects.create_user(
+                username=username,
+                password=password
+            )
 
-        # 🔥 MAKE ADMIN
-        user.is_staff = True
-        user.is_superuser = True
-        user.save()
+            # 🔥 make admin
+            user.is_staff = True
+            user.is_superuser = True
+            user.save()
 
-        return redirect('login')
+            return redirect('login')
 
     return render(request, 'register.html')
 
@@ -81,8 +82,8 @@ def register_view(request):
 # 🔥 LOGIN
 def login_view(request):
     if request.method == "POST":
-        username = request.POST['username']
-        password = request.POST['password']
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
         user = authenticate(request, username=username, password=password)
 
@@ -105,9 +106,10 @@ def product_detail(request, id):
     return render(request, 'product_detail.html', {'product': product})
 
 
-# 🔥 CREATE ADMIN (OPTIONAL)
+# 🔥 CREATE ADMIN (DIRECT URL)
 def create_admin(request):
-    User = get_user_model()   # ✅ inside function
+    from django.contrib.auth import get_user_model
+    User = get_user_model()
 
     user, created = User.objects.get_or_create(username="admin")
 
@@ -116,31 +118,4 @@ def create_admin(request):
     user.is_superuser = True
     user.save()
 
-    return HttpResponse("Admin fixed")
-
-username = request.POST.get('username')
-password = request.POST.get('password')
-
-from django.contrib.auth import get_user_model
-
-User = get_user_model()
-
-def register_view(request):
-    if request.method == "POST":
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-
-        if username and password:
-            user = User.objects.create_user(
-                username=username,
-                password=password
-            )
-
-            # 🔥 make admin
-            user.is_staff = True
-            user.is_superuser = True
-            user.save()
-
-            return redirect('login')
-
-    return render(request, 'register.html')
+    return HttpResponse("Admin created successfully")
