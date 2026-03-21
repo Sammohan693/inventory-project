@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="center-wrapper">
+
+    <h1>Inventory</h1>
+
+    <!-- 🔥 STATS -->
+    <div class="cards">
+        <div class="card-box">
+            <h3>Total Products</h3>
+            <p>{{ total_products }}</p>
+        </div>
+
+        <div class="card-box">
+            <h3>Low Stock</h3>
+            <p>{{ low_stock }}</p>
+        </div>
+    </div>
+
+    <form method="GET" class="search-box">
+    <input type="text" name="q" placeholder="Search product..." value="{{ request.GET.q }}">
+    <button type="submit">Search</button>
+    </form>
+
+    <!-- 🔥 TABLE -->
+    <div class="glass-card table-box">
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+
+            {% for p in products %}
+            <tr onclick="window.location='{% url 'product_detail' p.id %}'" style="cursor:pointer;">
+                <td>{{ p.name }}</td>
+                <td>₹{{ p.price }}</td>
+                <td>{{ p.quantity }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

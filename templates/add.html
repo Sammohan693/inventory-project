@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="page">
+
+    <h2>➕ Add Product</h2>
+
+    <div class="glass-card">
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <input type="text" name="name" placeholder="Product Name" required><br><br>
+
+            <input type="number" name="price" placeholder="Price" required><br><br>
+
+            <input type="number" name="quantity" placeholder="Quantity" required><br><br>
+
+            <!-- 🔥 IMAGE FILE UPLOAD -->
+            <input type="file" name="image" required><br><br>
+
+            <button class="primary">Add Product</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

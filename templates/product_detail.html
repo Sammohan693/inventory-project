@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="product-center">
+
+    <h1>{{ product.name }}</h1>
+
+    <div class="glass-card">
+
+       <img src="{{ product.image.url }}" class="product-img">
+
+        <p><b>Price:</b> ₹{{ product.price }}</p>
+        <p><b>Quantity:</b> {{ product.quantity }}</p>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+<script>
+const img = document.getElementById("productImg");
+
+img.addEventListener("mousemove", (e) => {
+
+    const rect = img.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = -(y - centerY) / 15;
+    const rotateY = (x - centerX) / 15;
+
+    img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+});
+
+img.addEventListener("mouseleave", () => {
+    img.style.transform = "rotateX(0) rotateY(0) scale(1)";
+});
+</script>

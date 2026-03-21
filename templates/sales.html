@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="center-wrapper">
+
+    <h1>Sales Overview</h1>
+
+    <!-- 🔥 STATS -->
+    <div class="cards">
+        <div class="card-box">
+            <h3>Today's Sales</h3>
+            <p>₹2000</p>
+        </div>
+
+        <div class="card-box">
+            <h3>Total Orders</h3>
+            <p>15</p>
+        </div>
+
+        <div class="card-box">
+            <h3>Pending Orders</h3>
+            <p>3</p>
+        </div>
+    </div>
+
+    <!-- 🔥 TABLE -->
+    <div class="glass-card table-box">
+        <h3>Recent Sales</h3>
+
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+
+            <tr>
+                <td>Laptop</td>
+                <td>50000</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>20000</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Watch</td>
+                <td>5000</td>
+                <td>3</td>
+            </tr>
+
+        </table>
+    </div>
+
+</div>
+
+{% endblock %}

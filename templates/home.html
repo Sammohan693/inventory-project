@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Inventory</title>
+
+    <!-- 🔥 Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- 🔥 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- 🔥 CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+<!-- 🔥 BACKGROUND BLOBS -->
+<div class="bg-blur blur1"></div>
+<div class="bg-blur blur2"></div>
+
+<!-- 🔷 NAVBAR -->
+<div class="topbar">
+    <div class="logo">⚡ Inventory</div>
+
+    <div class="menu">
+        <a href="{% url 'inventory' %}">Inventory</a>
+        <a href="{% url 'sales' %}">Sales</a>
+        <a href="{% url 'reports' %}">Reports</a>
+    </div>
+
+    <div class="auth">
+        {% if user.is_authenticated %}
+            <span>Hi {{ user.username }}</span>
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}">Sign In</a>
+            <a href="{% url 'register' %}" class="signup-btn">Sign Up</a>
+            <a href="/accounts/google/login/" class="google-btn">
+                <i class="fa-brands fa-google"></i>
+            </a>
+        {% endif %}
+    </div>
+</div>
+
+<!-- 🔥 HERO SECTION -->
+<div class="hero-glass fade-up">
+
+    <!-- LEFT TEXT -->
+    <div class="hero-text">
+        <h1>
+            Smart Inventory Management for Indian Businesses
+        </h1>
+
+        <p>
+            Manage orders, track stock, handle GST billing, and oversee warehouses —
+            all from one powerful, easy-to-use platform.
+        </p>
+
+        <div class="buttons">
+            <a href="{% url 'register' %}" class="primary">Get Started</a>
+            <a href="{% url 'login' %}" class="secondary">Explore Demo</a>
+        </div>
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="hero-image">
+        <img src="{% static 'images/dashboard.png' %}" class="card-img">
+    </div>
+
+</div>
+
+<!-- 🔷 FEATURES -->
+<div class="features fade-up">
+
+    <a href="{% url 'inventory' %}" class="card">
+        <i class="fa-solid fa-box"></i>
+        <h3>Track Inventory</h3>
+        <p>Manage your products easily</p>
+    </a>
+
+    <a href="{% url 'sales' %}" class="card">
+        <i class="fa-solid fa-chart-line"></i>
+        <h3>Sales Management</h3>
+        <p>Track your daily sales</p>
+    </a>
+
+    <a href="{% url 'reports' %}" class="card">
+        <i class="fa-solid fa-file-lines"></i>
+        <h3>Reports</h3>
+        <p>Get insights instantly</p>
+    </a>
+
+</div>
+
+<!-- 🔷 GST SECTION -->
+<div class="gst-section fade-up">
+
+    <h2>What makes Inventory GST Compliant</h2>
+
+    <div class="tabs">
+        <button class="tab active" onclick="showTab('gstin', this)">GSTIN</button>
+        <button class="tab" onclick="showTab('hsn', this)">HSN</button>
+        <button class="tab" onclick="showTab('invoice', this)">Invoices</button>
+        <button class="tab" onclick="showTab('taxes', this)">Taxes</button>
+        <button class="tab" onclick="showTab('eway', this)">E-Way</button>
+        <button class="tab" onclick="showTab('delivery', this)">Delivery</button>
+    </div>
+
+    <div class="tab-content active" id="gstin">
+        <h3>Save GSTINs</h3>
+        <p>Store GST details easily.</p>
+    </div>
+
+    <div class="tab-content" id="hsn">
+        <h3>HSN Codes</h3>
+        <p>Manage product classification.</p>
+    </div>
+
+    <div class="tab-content" id="invoice">
+        <h3>Invoices</h3>
+        <p>Create GST-ready invoices.</p>
+    </div>
+
+    <div class="tab-content" id="taxes">
+        <h3>Taxes</h3>
+        <p>Auto GST calculation.</p>
+    </div>
+
+    <div class="tab-content" id="eway">
+        <h3>E-Way Bills</h3>
+        <p>Track shipments easily.</p>
+    </div>
+
+    <div class="tab-content" id="delivery">
+        <h3>Delivery Challan</h3>
+        <p>Manage goods movement.</p>
+    </div>
+
+</div>
+
+<!-- 🔥 JS -->
+<script>
+function showTab(tabId, btn) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+
+    document.getElementById(tabId).classList.add('active');
+    btn.classList.add('active');
+}
+
+// 🔥 SCROLL ANIMATION
+window.addEventListener('scroll', () => {
+    document.querySelectorAll('.fade-up').forEach(el => {
+        let pos = el.getBoundingClientRect().top;
+        if (pos < window.innerHeight - 100) {
+            el.classList.add('show');
+        }
+    });
+});
+</script>
+
+</body>
+</html>

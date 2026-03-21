@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Purchases</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Inventory</h2>
+        <ul>
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/inventory/">Inventory</a></li>
+            <li><a href="/sales/">Sales</a></li>
+            <li class="active"><a href="/purchases/">Purchases</a></li>
+            <li><a href="/reports/">Reports</a></li>
+        </ul>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+
+        <div class="navbar">
+            <input type="text" placeholder="Search...">
+            <div class="profile">👤</div>
+        </div>
+
+        <h2>🛒 Purchases</h2>
+
+        <div class="cards">
+            <div class="card">Total Purchases <br><b>₹10000</b></div>
+            <div class="card">Orders <br><b>8</b></div>
+            <div class="card">Pending <br><b>2</b></div>
+        </div>
+
+        <div class="table">
+            <h3>Recent Purchases</h3>
+
+            <table>
+                <tr>
+                    <th>Product</th>
+                    <th>Cost</th>
+                    <th>Quantity</th>
+                </tr>
+
+                <tr>
+                    <td>Keyboard</td>
+                    <td>1000</td>
+                    <td>5</td>
+                </tr>
+
+                <tr>
+                    <td>Mouse</td>
+                    <td>500</td>
+                    <td>10</td>
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
