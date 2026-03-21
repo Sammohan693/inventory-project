@@ -21,5 +21,5 @@ from inventory import views
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('create-admin/', views.create_admin),  # 🔥 ADD THIS
+    path('create-admin/', views.create_admin),  
 ]
