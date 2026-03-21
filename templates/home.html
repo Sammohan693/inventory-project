@@ -14,6 +14,35 @@
     <!-- 🔥 CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
+    <style>
+        /* 🔥 FIX GOOGLE BUTTON */
+        .google-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: 1px solid white;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .google-btn:hover {
+            background: white;
+            color: black;
+        }
+
+        /* 🔥 FIX ANY INPUT WHITE BOX */
+        input {
+            background: transparent !important;
+            border: none;
+            outline: none;
+            color: white;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -39,6 +68,8 @@
         {% else %}
             <a href="{% url 'login' %}">Sign In</a>
             <a href="{% url 'register' %}" class="signup-btn">Sign Up</a>
+
+            <!-- 🔥 TEMP disable if error -->
             <a href="/accounts/google/login/" class="google-btn">
                 <i class="fa-brands fa-google"></i>
             </a>
@@ -46,18 +77,15 @@
     </div>
 </div>
 
-<!-- 🔥 HERO SECTION -->
+<!-- 🔥 HERO -->
 <div class="hero-glass fade-up">
 
-    <!-- LEFT TEXT -->
     <div class="hero-text">
-        <h1>
-            Smart Inventory Management for Indian Businesses
-        </h1>
+        <h1>Smart Inventory Management for Indian Businesses</h1>
 
         <p>
             Manage orders, track stock, handle GST billing, and oversee warehouses —
-            all from one powerful, easy-to-use platform.
+            all from one powerful platform.
         </p>
 
         <div class="buttons">
@@ -66,7 +94,6 @@
         </div>
     </div>
 
-    <!-- RIGHT IMAGE -->
     <div class="hero-image">
         <img src="{% static 'images/dashboard.png' %}" class="card-img">
     </div>
@@ -96,7 +123,7 @@
 
 </div>
 
-<!-- 🔷 GST SECTION -->
+<!-- 🔷 GST -->
 <div class="gst-section fade-up">
 
     <h2>What makes Inventory GST Compliant</h2>
@@ -120,26 +147,6 @@
         <p>Manage product classification.</p>
     </div>
 
-    <div class="tab-content" id="invoice">
-        <h3>Invoices</h3>
-        <p>Create GST-ready invoices.</p>
-    </div>
-
-    <div class="tab-content" id="taxes">
-        <h3>Taxes</h3>
-        <p>Auto GST calculation.</p>
-    </div>
-
-    <div class="tab-content" id="eway">
-        <h3>E-Way Bills</h3>
-        <p>Track shipments easily.</p>
-    </div>
-
-    <div class="tab-content" id="delivery">
-        <h3>Delivery Challan</h3>
-        <p>Manage goods movement.</p>
-    </div>
-
 </div>
 
 <!-- 🔥 JS -->
@@ -151,16 +158,6 @@ function showTab(tabId, btn) {
     document.getElementById(tabId).classList.add('active');
     btn.classList.add('active');
 }
-
-// 🔥 SCROLL ANIMATION
-window.addEventListener('scroll', () => {
-    document.querySelectorAll('.fade-up').forEach(el => {
-        let pos = el.getBoundingClientRect().top;
-        if (pos < window.innerHeight - 100) {
-            el.classList.add('show');
-        }
-    });
-});
 </script>
 
 </body>

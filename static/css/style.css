@@ -493,3 +493,28 @@ th, td {
     50% { transform: translateY(-15px); }
     100% { transform: translateY(0px); }
 }
+
+/* 🔥 Navbar input fix */
+.navbar input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+/* 🔥 Remove white box */
+.navbar input:focus {
+    background: transparent;
+    border: none;
+}
+
+/* 🔥 Google icon fix (if kept) */
+.google-btn {
+    background: transparent;
+    color: white;
+    border: none;
+}
+
+.navbar input {
+    border-bottom: 1px solid white;
+}
