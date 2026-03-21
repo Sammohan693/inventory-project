@@ -5,8 +5,6 @@ from .models import Product
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth import get_user_model
 
-User = get_user_model()
-
 
 # 🔷 HOME
 def home(request):
@@ -35,7 +33,7 @@ def add_product(request):
             name=request.POST['name'],
             price=request.POST['price'],
             quantity=request.POST['quantity'],
-            image=request.FILES.get('image')  # safe upload
+            image=request.FILES.get('image')
         )
         return redirect('inventory')
 
@@ -57,13 +55,21 @@ def reports(request):
     return render(request, 'reports.html')
 
 
-# 🔥 REGISTER
+# 🔥 REGISTER (ADMIN CREATE)
 def register_view(request):
+    User = get_user_model()   # ✅ inside function
+
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
 
-        User.objects.create_user(username=username, password=password)
+        user = User.objects.create_user(username=username, password=password)
+
+        # 🔥 MAKE ADMIN
+        user.is_staff = True
+        user.is_superuser = True
+        user.save()
+
         return redirect('login')
 
     return render(request, 'register.html')
@@ -96,14 +102,15 @@ def product_detail(request, id):
     return render(request, 'product_detail.html', {'product': product})
 
 
-# 🔥 CREATE ADMIN (TEMP - REMOVE AFTER USE)
+# 🔥 CREATE ADMIN (OPTIONAL)
 def create_admin(request):
-    if not User.objects.filter(username="admin").exists():
-        User.objects.create_superuser(
-            username="admin",
-            email="admin@gmail.com",
-            password="admin123"
-        )
-        return HttpResponse("Admin created")
-    else:
-        return HttpResponse("Admin already exists")
+    User = get_user_model()   # ✅ inside function
+
+    user, created = User.objects.get_or_create(username="admin")
+
+    user.set_password("admin123")
+    user.is_staff = True
+    user.is_superuser = True
+    user.save()
+
+    return HttpResponse("Admin fixed")
