@@ -15,3 +15,11 @@ urlpatterns = [
 
 # 🔥 MEDIA FILES
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+from inventory import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+
+    path('create-admin/', views.create_admin),  # 🔥 ADD THIS
+]
