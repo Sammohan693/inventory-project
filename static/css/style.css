@@ -212,3 +212,87 @@ body::after {
         transform: translateY(0);
     }
 }
+
+/* 🔥 GLASS EFFECT */
+.gst-section {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 50px 20px;
+    margin: 50px auto;
+    max-width: 900px;
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    animation: fadeUp 0.8s ease;
+}
+
+/* 🔥 TABS */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.tab {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* 🔥 TAB HOVER */
+.tab:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-3px);
+}
+
+/* 🔥 ACTIVE TAB */
+.tab.active {
+    background: white;
+    color: black;
+}
+
+/* 🔥 CONTENT */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* 🔥 FLOAT EFFECT */
+.gst-section:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* 🔥 ENTRY ANIMATION */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 🔥 TEXT ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
