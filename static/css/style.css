@@ -586,13 +586,14 @@ input[type="password"] {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
-    margin-top: 30px;
+    gap: 40px;
+    width: 100%;
+    max-width: 1000px;
 }
 
 .product-card {
     width: 220px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.12);
     backdrop-filter: blur(20px);
     border-radius: 20px;
     padding: 20px;
@@ -603,21 +604,17 @@ input[type="password"] {
 }
 
 .product-card:hover {
-    transform: scale(1.05);
+    transform: translateY(-10px) scale(1.05);
 }
 
 .product-img {
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
     object-fit: contain;
-    margin-bottom: 10px;
+    display: block;
+    margin: 0 auto 15px auto;
 }
 
 .product-card h3 {
-    font-size: 16px;
     margin: 10px 0;
-}
-
-.product-card p {
-    margin: 5px 0;
 }
