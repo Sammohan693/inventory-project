@@ -26,22 +26,19 @@
         <button type="submit">Search</button>
     </form>
 
-    <!-- 🔥 PRODUCT GRID -->
     <div class="product-grid">
 
-        {% for p in products %}
-        <a href="{% url 'product_detail' p.id %}" class="product-card">
+    {% for p in products %}
+    <a href="{% url 'product_detail' p.id %}" class="product-card">
 
-            <img src="{{ p.image|default:'https://via.placeholder.com/150' }}" class="product-img">
+        <h3>{{ p.name }}</h3>
+        <p>₹{{ p.price }}</p>
+        <small>Qty: {{ p.quantity }}</small>
 
-            <h3>{{ p.name }}</h3>
-            <p>₹{{ p.price }}</p>
-            <small>Qty: {{ p.quantity }}</small>
+    </a>
+    {% endfor %}
 
-        </a>
-        {% endfor %}
-
-    </div>
+</div>
 
 </div>
 
