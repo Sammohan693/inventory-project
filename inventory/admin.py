@@ -5,13 +5,10 @@ from django.utils.html import format_html
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'price', 'quantity', 'image_preview')
-    search_fields = ('name',)
-    list_filter = ('quantity',)
-    ordering = ('-id',)
 
     def image_preview(self, obj):
         if obj.image:
-            return format_html('<img src="{}" width="50" height="50"/>', obj.image.url)
+            return format_html('<img src="{}" width="50"/>', obj.image)
         return "No Image"
 
     image_preview.short_description = 'Image'
