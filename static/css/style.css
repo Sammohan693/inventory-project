@@ -296,3 +296,31 @@ body::after {
         transform: translateY(0);
     }
 }
+
+/* 🔥 HEADING ANIMATION */
+.gst-section h2 {
+    animation: slideDown 0.8s ease;
+}
+
+/* 🔥 KEYFRAME */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gst-section h2 {
+    animation: slideDown 0.8s ease;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+/* 🔥 HOVER GLOW */
+.gst-section h2:hover {
+    text-shadow: 0 0 15px rgba(255,255,255,0.8);
+}
