@@ -8,11 +8,7 @@
 
         <h1 class="product-title">{{ product.name }}</h1>
 
-        <div class="image-box">
-            {% if product.image %}
-                <img src="{{ product.image }}" class="product-img">
-            {% endif %}
-        </div>
+        
 
         <div class="product-info">
             <p><strong>Price:</strong> ₹{{ product.price }}</p>
