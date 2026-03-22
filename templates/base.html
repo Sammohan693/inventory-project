@@ -5,9 +5,10 @@
     <title>Inventory</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=5">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=6">
 </head>
-<body>
+
+<body class="page-anim">
 
 <!-- 🔷 NAVBAR -->
 <div class="topbar">
@@ -33,25 +34,41 @@
 <!-- 🔥 PAGE CONTENT -->
 {% block content %}{% endblock %}
 
+<!-- 🔥 TAB SCRIPT -->
 <script>
 function showTab(id) {
-
-    // hide all content
     document.querySelectorAll('.tab-content').forEach(el => {
         el.classList.remove('active');
     });
 
-    // remove active tab
     document.querySelectorAll('.tab').forEach(el => {
         el.classList.remove('active');
     });
 
-    // show selected
     document.getElementById(id).classList.add('active');
-
-    // highlight button
     event.target.classList.add('active');
 }
+</script>
+
+<!-- 🔥 PAGE TRANSITION SCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.btn-go').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            let link = this.href;
+
+            document.body.style.opacity = '0';
+            document.body.style.transform = 'scale(0.98)';
+            document.body.style.transition = '0.3s';
+
+            setTimeout(() => {
+                window.location.href = link;
+            }, 300);
+        });
+    });
+});
 </script>
 
 </body>
