@@ -386,13 +386,7 @@ input[type="password"] {
     margin-bottom: 20px;
 }
 
-/* 🔥 IMAGE FIX */
-.product-img {
-    width: 100%;
-    max-width: 250px;
-    border-radius: 12px;
-    transition: 0.4s ease;
-}
+
 
 /* 🔥 IMAGE HOVER ANIMATION */
 .product-img:hover {
@@ -537,12 +531,7 @@ input[type="password"] {
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
+
 
 .product-card {
     background: rgba(255,255,255,0.1);
@@ -617,4 +606,48 @@ input[type="password"] {
 
 .product-card h3 {
     margin: 10px 0;
+}
+
+/* ===============================
+   🔥 FINAL PRODUCT GRID FIX
+================================ */
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.product-card {
+    width: 220px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-8px) scale(1.05);
+}
+
+/* 🔥 IMAGE PERFECT CENTER */
+.product-img {
+    width: 130px !important;
+    height: 130px !important;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 15px;
+}
+
+/* 🔥 TEXT ALIGN */
+.product-card h3,
+.product-card p,
+.product-card small {
+    text-align: center;
+    display: block;
 }
