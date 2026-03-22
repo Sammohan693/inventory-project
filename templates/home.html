@@ -12,39 +12,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- 🔥 CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-    <style>
-        /* 🔥 FIX GOOGLE BUTTON */
-        .google-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: transparent;
-            border: 1px solid white;
-            border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            color: white;
-            text-decoration: none;
-        }
-
-        .google-btn:hover {
-            background: white;
-            color: black;
-        }
-
-        
-        
-    </style>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=10">
 
 </head>
 
 <body>
-
-<!-- 🔥 BACKGROUND BLOBS -->
-<div class="bg-blur blur1"></div>
-<div class="bg-blur blur2"></div>
 
 <!-- 🔷 NAVBAR -->
 <div class="topbar">
@@ -63,11 +35,6 @@
         {% else %}
             <a href="{% url 'login' %}">Sign In</a>
             <a href="{% url 'register' %}" class="signup-btn">Sign Up</a>
-
-            <!-- 🔥 TEMP disable if error -->
-            <a href="/accounts/google/login/" class="google-btn">
-                <i class="fa-brands fa-google"></i>
-            </a>
         {% endif %}
     </div>
 </div>
@@ -87,10 +54,6 @@
             <a href="{% url 'register' %}" class="primary">Get Started</a>
             <a href="{% url 'login' %}" class="secondary">Explore Demo</a>
         </div>
-    </div>
-
-    <div class="hero-image">
-        <img src="{% static 'images/dashboard.png' %}" class="card-img">
     </div>
 
 </div>
@@ -118,7 +81,7 @@
 
 </div>
 
-<!-- 🔷 GST -->
+<!-- 🔥 GST SECTION (FINAL CLEAN VERSION) -->
 <div class="gst-section fade-up">
 
     <h2>What makes Inventory GST Compliant</h2>
@@ -127,51 +90,9 @@
         <button class="tab active" onclick="showTab('gstin', this)">GSTIN</button>
         <button class="tab" onclick="showTab('hsn', this)">HSN</button>
         <button class="tab" onclick="showTab('invoice', this)">Invoices</button>
-        <button class="tab" onclick="showTab('taxes', this)">Taxes</button>
+        <button class="tab" onclick="showTab('tax', this)">Taxes</button>
         <button class="tab" onclick="showTab('eway', this)">E-Way</button>
         <button class="tab" onclick="showTab('delivery', this)">Delivery</button>
-    </div>
-
-    <div class="tab-content active" id="gstin">
-        <h3>Save GSTINs</h3>
-        <p>Store GST details easily.</p>
-    </div>
-
-    <div class="tab-content" id="hsn">
-        <h3>HSN Codes</h3>
-        <p>Manage product classification.</p>
-    </div>
-
-</div>
-
-<div class="gst-section">
-
-    <h2 class="gst-title">Product Details</h2>
-
-    <div class="tabs">
-        <button class="tab active">Info</button>
-        <button class="tab">Price</button>
-        <button class="tab">Stock</button>
-    </div>
-
-    <div class="gst-content">
-        <h3>Product Info</h3>
-        <p>All product related details here.</p>
-    </div>
-
-</div>
-
-<div class="gst-section">
-
-    <h2 class="gst-title">What makes Inventory GST Compliant</h2>
-
-    <div class="tabs">
-        <button class="tab active" onclick="showTab('gstin')">GSTIN</button>
-        <button class="tab" onclick="showTab('hsn')">HSN</button>
-        <button class="tab" onclick="showTab('invoice')">Invoices</button>
-        <button class="tab" onclick="showTab('tax')">Taxes</button>
-        <button class="tab" onclick="showTab('eway')">E-Way</button>
-        <button class="tab" onclick="showTab('delivery')">Delivery</button>
     </div>
 
     <div class="gst-content">
@@ -223,4 +144,3 @@ function showTab(tabId, btn) {
 
 </body>
 </html>
-
