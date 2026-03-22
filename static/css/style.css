@@ -97,20 +97,15 @@ body {
     transform: translateY(-8px) scale(1.05);
 }
 
-/* 🔥 TEXT FIX */
-.product-card h3 {
-    margin: 10px 0;
-    color: white;
-}
+
+
 
 .product-card p {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-.product-card small {
-    display: block;
-    margin-top: 5px;
+    color: white !important;
+    font-size: 22px !important;
+    font-weight: bold !important;
+    margin: 12px 0 !important;
+    line-height: 2 !important;
+    overflow: visible !important;
+    height: auto !important;
 }
