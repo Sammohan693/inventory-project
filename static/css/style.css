@@ -12,8 +12,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 15px 40px;
-    background: rgba(0,0,0,0.3);
-    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.4);
 }
 
 .menu a {
@@ -47,8 +46,7 @@ body {
     width: 200px;
     padding: 20px;
     border-radius: 15px;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(15px);
+    background: rgba(0,0,0,0.5); /* 🔥 no blur */
 }
 
 /* 🔍 SEARCH */
@@ -80,11 +78,10 @@ body {
     gap: 30px;
 }
 
-/* 🔥 PRODUCT CARD */
+/* 🔥 PRODUCT CARD (NO BLUR FINAL FIX) */
 .product-card {
     width: 220px;
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(20px);
+    background: rgba(0,0,0,0.8); /* 🔥 SOLID BACKGROUND */
     border-radius: 20px;
     padding: 20px;
     text-align: center;
@@ -97,32 +94,23 @@ body {
     transform: translateY(-8px) scale(1.05);
 }
 
+/* 🔥 PRODUCT NAME */
+.product-card h3 {
+    margin: 10px 0;
+    color: white;
+}
 
-
-
+/* 🔥 PRICE (CRYSTAL CLEAR) */
 .product-card p {
-    color: white !important;
-    font-size: 22px !important;
+    color: #ffffff !important;
+    font-size: 20px !important;
     font-weight: bold !important;
-    margin: 12px 0 !important;
-    line-height: 2 !important;
-    overflow: visible !important;
-    height: auto !important;
+    margin: 10px 0 !important;
 }
 
-.product-card {
-    position: relative;
-    z-index: 10;
-}
-
-.product-card p {
-    position: relative;
-    z-index: 20;
-    color: white !important;
-    background: transparent !important;
-}
-
-.product-card::before,
-.product-card::after {
-    display: none !important;
+/* 🔥 QUANTITY */
+.product-card small {
+    display: block;
+    margin-top: 5px;
+    color: #ddd;
 }
