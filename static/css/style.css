@@ -536,3 +536,42 @@ input[type="password"] {
     transform: scale(1.1) rotate(1deg);
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.product-img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.1);
+}
+
+.product-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
