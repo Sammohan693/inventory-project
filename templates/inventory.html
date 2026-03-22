@@ -4,39 +4,14 @@
 
 <div class="container fade-up">
 
-    <!-- 🔥 TITLE -->
     <h1 class="page-title">Inventory</h1>
 
-    <!-- 🔥 STATS -->
-    <div class="stats-wrapper">
-        <div class="glass-card stat-card">
-            <h3>Total Products</h3>
-            <p>{{ total_products }}</p>
-        </div>
-
-        <div class="glass-card stat-card">
-            <h3>Low Stock</h3>
-            <p>{{ low_stock }}</p>
-        </div>
-    </div>
-
-    <!-- 🔍 SEARCH -->
-    <form method="GET" class="search-wrapper">
-        <input type="text" name="q" placeholder="Search product..." value="{{ request.GET.q }}">
-        <button type="submit">Search</button>
-    </form>
-
-    <!-- 🔥 PRODUCT GRID -->
     <div class="product-grid">
 
         {% for p in products %}
         <a href="{% url 'product_detail' p.id %}" class="product-card">
 
-            {% if p.image %}
-                <img src="{{ p.image }}" class="product-img">
-            {% else %}
-                <img src="https://via.placeholder.com/150" class="product-img">
-            {% endif %}
+            <img src="{{ p.image }}" class="product-img">
 
             <h3>{{ p.name }}</h3>
             <p>₹{{ p.price }}</p>
