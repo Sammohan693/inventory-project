@@ -114,3 +114,26 @@ body {
     margin-top: 5px;
     color: #ddd;
 }
+
+/* 🔥 REMOVE ALL SIDE GLASS SHAPES */
+.product-card::before,
+.product-card::after,
+.container::before,
+.container::after,
+body::before,
+body::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* 🔥 REMOVE EXTRA BACKGROUND BLOCKS */
+.product-card {
+    background: rgba(0,0,0,0.8) !important;
+    box-shadow: none !important;
+}
+
+/* 🔥 FIX ANY RANDOM OVERLAY */
+* {
+    backdrop-filter: none !important;
+    filter: none !important;
+}
