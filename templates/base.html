@@ -33,5 +33,26 @@
 <!-- 🔥 PAGE CONTENT -->
 {% block content %}{% endblock %}
 
+<script>
+function showTab(id) {
+
+    // hide all content
+    document.querySelectorAll('.tab-content').forEach(el => {
+        el.classList.remove('active');
+    });
+
+    // remove active tab
+    document.querySelectorAll('.tab').forEach(el => {
+        el.classList.remove('active');
+    });
+
+    // show selected
+    document.getElementById(id).classList.add('active');
+
+    // highlight button
+    event.target.classList.add('active');
+}
+</script>
+
 </body>
 </html>

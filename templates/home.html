@@ -161,6 +161,55 @@
 
 </div>
 
+<div class="gst-section">
+
+    <h2 class="gst-title">What makes Inventory GST Compliant</h2>
+
+    <div class="tabs">
+        <button class="tab active" onclick="showTab('gstin')">GSTIN</button>
+        <button class="tab" onclick="showTab('hsn')">HSN</button>
+        <button class="tab" onclick="showTab('invoice')">Invoices</button>
+        <button class="tab" onclick="showTab('tax')">Taxes</button>
+        <button class="tab" onclick="showTab('eway')">E-Way</button>
+        <button class="tab" onclick="showTab('delivery')">Delivery</button>
+    </div>
+
+    <div class="gst-content">
+
+        <div id="gstin" class="tab-content active">
+            <h3>Save GSTINs</h3>
+            <p>Store GST details easily.</p>
+        </div>
+
+        <div id="hsn" class="tab-content">
+            <h3>HSN Codes</h3>
+            <p>Manage product classification.</p>
+        </div>
+
+        <div id="invoice" class="tab-content">
+            <h3>Create Invoices</h3>
+            <p>Generate GST invoices instantly.</p>
+        </div>
+
+        <div id="tax" class="tab-content">
+            <h3>Auto Tax Calculation</h3>
+            <p>Calculate GST automatically.</p>
+        </div>
+
+        <div id="eway" class="tab-content">
+            <h3>E-Way Bills</h3>
+            <p>Generate and manage E-way bills.</p>
+        </div>
+
+        <div id="delivery" class="tab-content">
+            <h3>Delivery Tracking</h3>
+            <p>Track shipments and delivery status.</p>
+        </div>
+
+    </div>
+
+</div>
+
 <!-- 🔥 JS -->
 <script>
 function showTab(tabId, btn) {

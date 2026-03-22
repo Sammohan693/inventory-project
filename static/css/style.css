@@ -183,3 +183,32 @@ body::after {
 .gst-content p {
     opacity: 0.9;
 }
+
+/* 🔥 TAB CONTENT HIDE */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+/* 🔥 ACTIVE SHOW */
+.tab-content.active {
+    display: block;
+}
+
+/* 🔥 TAB ACTIVE STYLE */
+.tab.active {
+    background: white;
+    color: black;
+}
+
+/* 🔥 ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
