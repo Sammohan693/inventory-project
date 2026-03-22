@@ -683,3 +683,17 @@ input[type="password"] {
     font-size: 18px;
     margin-bottom: 5px;
 }
+
+.product-card p {
+    color: white !important;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product-card {
+    color: white !important;
+}
+
+.product-card {
+    color: white !important;
+}
